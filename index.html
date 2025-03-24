@@ -172,21 +172,23 @@
             document.getElementById(sectionId).classList.add('active');
         }
 
-        // Generate floating emojis
         function createFloatingEmojis() {
             const emojis = ['⏱', '🕰', '💻', '📜', '🪙', '🔄', '👨‍💻', '💬'];
-            for (let i = 0; i < 10; i++) {
+            document.querySelectorAll('.project-card').forEach(card => {
+            for (let i = 0; i < 3; i++) { // 3 emojis per card
                 let emoji = document.createElement('div');
                 emoji.className = 'emoji-bg';
                 emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-                emoji.style.left = Math.random() * 100 + 'vw';
-                emoji.style.top = Math.random() * 100 + 'vh';
+                emoji.style.position = 'absolute';
+                emoji.style.left = Math.random() * 80 + '%';
+                emoji.style.top = Math.random() * 80 + '%';
                 emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
-                document.body.appendChild(emoji);
+                emoji.style.pointerEvents = 'none';
+                card.style.position = 'relative';
+                card.appendChild(emoji);
             }
-        }
 
-        createFloatingEmojis();
+    createFloatingEmojis();
     </script>
 
 </body>
