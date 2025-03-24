@@ -11,7 +11,30 @@
     <style>
         /* Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        
+        .course-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    margin: 10px auto;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card h3 {
+    color: #ffba08;
+}
+
+.course-card p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
         /* Background */
         body {
             background: radial-gradient(circle, #0d1b2a, #03071e);
@@ -113,6 +136,7 @@
             <a href="#" onclick="showSection('projects')">Projects</a>
             <a href="https://fordevelepors.blogspot.com" target="_blank">Blog</a>
             <a href="https://exoo25pro.gumroad.com" target="_blank">Store</a>
+            <a href="#" onclick="showSection('courses')">Free Courses</a>
         </nav>
     </header>
 
@@ -191,6 +215,21 @@
         </div>
     </section>
 
+    <section id="courses">
+        <h2>Free Courses</h2>
+        <div class="course-card">
+            <h3>Python Course</h3>
+            <p>Learn Python for free with my YouTube course.</p>
+            <a href="https://www.youtube.com/playlist?list=PLYIyFKgTcLRjygAWKWmgwCQLAer85GGzV" target="_blank">Watch Now</a>
+        </div>
+
+        <div class="course-card">
+            <h3>Coming Soon...</h3>
+            <p>More courses will be available soon! Stay tuned.</p>
+        </div>
+    </section>
+
+    
     <footer>
         <p>&copy; 2025 Mehdi. All Rights Reserved.</p>
     </footer>
