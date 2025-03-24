@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehdi's Personal Website</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        /* Header Styles */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1 {
+            float: left;
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        nav {
+            float: right;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f4a261;
+        }
+
+        /* Section Styles */
+        section {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 4px solid #333;
+            transition: background 0.3s;
+        }
+
+        ul li:hover {
+            background: #e9e9e9;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #f4a261;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1, nav {
+                float: none;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mehdi's Website</h1>
+            <nav>
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('projects')">Projects</a>
+                <a href="https://fordevelepors.blogspot.com" target="_blank">Blog</a>
+                <a href="https://exoo25pro.gumroad.com" target="_blank">Store</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="home" class="active">
+            <h2>Welcome to My Personal Website!</h2>
+            <p>Hello! I'm Mehdi, a passionate developer from Gilgit-Baltistan. I enjoy creating innovative projects and sharing my knowledge through my blog. Feel free to explore my work and connect with me!</p>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <ul>
+                <li><a href="https://pomocut.netlify.app" target="_blank">Pomodoro Timer</a></li>
+                <li><a href="https://htmlprog.netlify.app" target="_blank">HTML Editor</a></li>
+                <li><a href="https://sentence-press.netlify.app" target="_blank">Text Editor</a></li>
+                <li><a href="https://exoo25.github.io/coin-flipper" target="_blank">Coin Flipper</a></li>
+                <li><a href="https://exoo25hub.forumotion.com" target="_blank">Forum</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Mehdi. All rights reserved. | <a href="https://github.com/Mehdi" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            var activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+
+        // Optional: Show the home section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
