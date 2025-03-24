@@ -68,23 +68,26 @@
             width: 250px;
             transition: transform 0.3s;
             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+            position: relative; /* Needed for emoji placement */
+            overflow: hidden;
         }
 
         .project-card:hover { transform: scale(1.05); }
         .project-card h3 { color: #ffba08; }
         .project-card p { font-size: 14px; margin: 10px 0; }
 
-        /* Floating Emoji Background */
+        /* Floating Emoji Background (Only inside project cards) */
         .emoji-bg {
-            position: fixed;
-            font-size: 30px;
-            opacity: 0.2;
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.4;
             animation: float 5s infinite ease-in-out;
+            pointer-events: none;
         }
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
 
@@ -131,31 +134,31 @@
         <h2>My Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>Pomocut ⏱⏲🕰</h3>
+                <h3>Pomocut</h3>
                 <p>A Pomodoro timer for productivity.</p>
                 <a href="https://pomocut.netlify.app" target="_blank">Visit</a>
             </div>
 
             <div class="project-card">
-                <h3>HTML Editor 📝💻</h3>
+                <h3>HTML Editor</h3>
                 <p>Write and test HTML code online.</p>
                 <a href="https://htmlprog.netlify.app" target="_blank">Visit</a>
             </div>
 
             <div class="project-card">
-                <h3>Sentence Press ✍️📜</h3>
+                <h3>Sentence Press</h3>
                 <p>A simple and fast text editor.</p>
                 <a href="https://sentence-press.netlify.app" target="_blank">Visit</a>
             </div>
 
             <div class="project-card">
-                <h3>Coin Flipper 🪙🔄</h3>
+                <h3>Coin Flipper</h3>
                 <p>A fun random coin flipper.</p>
                 <a href="https://exoo25.github.io/coin-flip" target="_blank">Visit</a>
             </div>
 
             <div class="project-card">
-                <h3>Developer Forum 💬👨‍💻</h3>
+                <h3>Developer Forum</h3>
                 <p>Connect with other developers.</p>
                 <a href="https://exoo25hub.forumotion.com" target="_blank">Visit</a>
             </div>
@@ -172,25 +175,34 @@
             document.getElementById(sectionId).classList.add('active');
         }
 
+        // Generate floating emojis inside project cards
         function createFloatingEmojis() {
-            const emojis = ['⏱', '🕰', '💻', '📜', '🪙', '🔄', '👨‍💻', '💬'];
-            document.querySelectorAll('.project-card').forEach(card => {
-            for (let i = 0; i < 3; i++) { // 3 emojis per card
-                let emoji = document.createElement('div');
-                emoji.className = 'emoji-bg';
-                emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-                emoji.style.position = 'absolute';
-                emoji.style.left = Math.random() * 80 + '%';
-                emoji.style.top = Math.random() * 80 + '%';
-                emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
-                emoji.style.pointerEvents = 'none';
-                card.style.position = 'relative';
-                card.appendChild(emoji);
-            }
+            const emojiMap = {
+                "Pomocut": ['⏱', '⏲', '🕰'],
+                "HTML Editor": ['💻', '📝', '📜'],
+                "Sentence Press": ['✍️', '📜', '📝'],
+                "Coin Flipper": ['🪙', '🔄', '🎲'],
+                "Developer Forum": ['💬', '👨‍💻', '🗣']
+            };
 
-    createFloatingEmojis();
+            document.querySelectorAll('.project-card').forEach(card => {
+                let title = card.querySelector('h3').innerText;
+                let emojis = emojiMap[title] || ['⭐'];
+
+                for (let i = 0; i < 3; i++) {
+                    let emoji = document.createElement('div');
+                    emoji.className = 'emoji-bg';
+                    emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * 80 + '%';
+                    emoji.style.top = Math.random() * 80 + '%';
+                    emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+                    card.appendChild(emoji);
+                }
+            });
+        }
+
+        createFloatingEmojis();
     </script>
 
 </body>
 </html>
-
