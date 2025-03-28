@@ -9,16 +9,41 @@
     <meta property="og:description" content="Check out my projects, blog, and store!">
     <meta property="og:url" content="https://Exoo25.github.io">
     <style>
+        /* Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        
+        .course-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    margin: 10px auto;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card h3 {
+    color: #ffba08;
+}
+
+.course-card p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+        /* Background */
         body {
             background: radial-gradient(circle, #0d1b2a, #03071e);
             color: white;
             text-align: center;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
+        /* Header */
         header {
             padding: 15px;
             font-size: 22px;
@@ -29,6 +54,7 @@
             z-index: 100;
         }
 
+        /* Navigation */
         nav a {
             color: #f4a261;
             margin: 0 15px;
@@ -36,20 +62,21 @@
             font-size: 18px;
             transition: color 0.3s;
         }
-
         nav a:hover { color: #ffba08; }
 
-        /* Sections always visible */
-        section {
-            padding: 12px;
-        }
+        /* Sections */
+        section { display: none; padding: 100px 20px; }
+        section.active { display: block; }
+
+        /* Home Section */
         .home h1 {
             font-size: 50px;
             margin-top: 100px;
             text-shadow: 0px 0px 20px #ffba08;
         }
 
-        .project-grid, .course-grid {
+        /* Project Cards */
+        .project-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -57,28 +84,52 @@
             margin-top: 30px;
         }
 
-        .project-card, .course-card {
+        p {
+            white-space: pre-line;
+        }
+
+        
+        .project-card {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
             width: 250px;
             transition: transform 0.3s;
             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+            position: relative; /* Needed for emoji placement */
+            overflow: hidden;
         }
 
-        .project-card:hover, .course-card:hover { transform: scale(1.05); }
-        .project-card h3, .course-card h3 { color: #ffba08; }
-        .project-card p, .course-card p { font-size: 14px; margin: 10px 0; }
+        .project-card:hover { transform: scale(1.05); }
+        .project-card h3 { color: #ffba08; }
+        .project-card p { font-size: 14px; margin: 10px 0; }
 
+        /* Floating Emoji Background (Only inside project cards) */
+        .emoji-bg {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.4;
+            animation: float 5s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Footer */
         footer {
             margin-top: 50px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.7);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .home h1 { font-size: 36px; }
-            .project-card, .course-card { width: 90%; }
+            .project-card { width: 90%; }
         }
     </style>
 </head>
@@ -86,19 +137,48 @@
 
     <header>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('projects')">Projects</a>
             <a href="https://fordevelepors.blogspot.com" target="_blank">Blog</a>
             <a href="https://exoo25pro.gumroad.com" target="_blank">Store</a>
-            <a href="#courses">Free Courses</a>
+            <a href="#" onclick="showSection('courses')">Free Courses</a>
         </nav>
     </header>
 
-    <section id="home" class="home">
+    <!-- Home Section -->
+    <section id="home" class="home active">
         <h1>Mehdi - The Youngest Dev in the Omniverse</h1>
         <p>Skilled in Python, HTML, and JavaScript. Explore my projects below!</p>
+        <br>
+        <div style="background-color: white; border: 2px solid #ddd; border-radius: 10px; padding: 15px; text-align: center; max-width: 300px; margin: auto;">
+  <p style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">Follow me on:</p>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+    <a href="https://scratch.mit.edu/users/exoo25" target="_blank" style="text-decoration: none; text-align: center; color: black;">
+      <img src="https://cdn2.steamgriddb.com/icon/969a086e0717a9b496dd0e9a50ec8010.png" alt="Scratch" 
+ style="width: 40px; display: block; margin: auto; transition: transform 0.2s ease;" />
+      <span style="display: block; font-size: 14px; margin-top: 5px;">Scratch</span>
+    </a>
+    <a href="https://github.com/exoo25" target="_blank" style="text-decoration: none; text-align: center; color: black;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" 
+ style="width: 40px; display: block; margin: auto; transition: transform 0.2s ease;" />
+      <span style="display: block; font-size: 14px; margin-top: 5px;">GitHub</span>
+    </a>
+    <a href="https://youtube.com/@Exoo25-dev" target="_blank" style="text-decoration: none; text-align: center; color: black;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_Ikb15EEHFOGlxMCiQkVXcFtnw1JRpc6aMhDSCUaEAEU_refI5RVlXs&s=10" alt="YouTube" 
+ style="width: 40px; display: block; margin: auto; transition: transform 0.2s ease;" />
+      <span style="display: block; font-size: 14px; margin-top: 5px;">YouTube</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  a img:hover {
+    transform: scale(1.2); /* Increases the size by 20% */
+  }
+</style>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
         <h2>My Projects</h2>
         <div class="project-grid">
@@ -119,7 +199,9 @@
                 <p>A simple and fast text editor.</p>
                 <a href="https://sentence-press.netlify.app" target="_blank">Visit</a>
             </div>
-
+            <br>
+            <br>
+            <br>
             <div class="project-card">
                 <h3>Coin Flipper</h3>
                 <p>A fun random coin flipper.</p>
@@ -131,34 +213,69 @@
                 <p>Connect with other developers.</p>
                 <a href="https://exoo25hub.forumotion.com" target="_blank">Visit</a>
             </div>
-
             <div class="project-card">
                 <h3>Py-Hurts-My-Arms</h3>
-                <p>A lightweight Python code editor with a simple UI.</p>
-                <a href="https://exoo25.github.io/Py-hurts-My-Arm" target="_blank">Visit</a>
+                <p>A lightweight Python code editor with simple UI.</p>
+                <a href="exoo25.github.io/Py-hurts-My-Arm" target="_blank">Visit</a>
             </div>
+
         </div>
     </section>
 
     <section id="courses">
         <h2>Free Courses</h2>
-        <div class="course-grid">
-            <div class="course-card">
-                <h3>Python Course</h3>
-                <p>Learn Python for free with my YouTube course.</p>
-                <a href="https://www.youtube.com/playlist?list=PLYIyFKgTcLRjygAWKWmgwCQLAer85GGzV" target="_blank">Watch Now</a>
-            </div>
-
-            <div class="course-card">
-                <h3>Coming Soon...</h3>
-                <p>More courses will be available soon! Stay tuned.</p>
-            </div>
+        <div class="course-card">
+            <h3>Python Course</h3>
+            <p>Learn Python for free with my YouTube course.</p>
+            <a href="https://www.youtube.com/playlist?list=PLYIyFKgTcLRjygAWKWmgwCQLAer85GGzV" target="_blank">Watch Now</a>
+        </div>
+        <br><br>
+        <div class="course-card">
+            <h3>Coming Soon...</h3>
+            <p>More courses will be available soon! Stay tuned.</p>
         </div>
     </section>
 
+    
     <footer>
         <p>&copy; 2025 Mehdi. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Generate floating emojis inside project cards
+        function createFloatingEmojis() {
+            const emojiMap = {
+                "Pomocut": ['⏱', '⏲', '🕰'],
+                "HTML Editor": ['💻', '📝', '📜'],
+                "Sentence Press": ['✍️', '📜', '📝'],
+                "Coin Flipper": ['🎲', '🌕', '🍪'],
+                "Developer Forum": ['💬', '👨‍💻', '🗣'],
+                "Py-Hurts-My-Arms": ['🐍', '💻', '📝']
+            };
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                let title = card.querySelector('h3').innerText;
+                let emojis = emojiMap[title] || ['⭐'];
+
+                for (let i = 0; i < 3; i++) {
+                    let emoji = document.createElement('div');
+                    emoji.className = 'emoji-bg';
+                    emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * 80 + '%';
+                    emoji.style.top = Math.random() * 80 + '%';
+                    emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+                    card.appendChild(emoji);
+                }
+            });
+        }
+
+        createFloatingEmojis();
+    </script>
 
 </body>
 </html>
