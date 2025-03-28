@@ -42,15 +42,8 @@
             text-align: center;
             overflow-x: hidden;
         }
-        .title {
-            height: 100%;
-            width: 100%;
-            transform: translateY(20px); /* Move down */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .title:active{
-            transform: translateY(0px); /* Move down */
-            opacity:1;
+        
+
 
         /* Header */
         header {
@@ -79,11 +72,17 @@
 
         /* Home Section */
         .home h1 {
-            font-size: 50px;
+            font-size: 200px;
             margin-top: 100px;
             text-shadow: 0px 0px 20px #ffba08;
+            transition: font-size 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+            
         }
-
+        h1:hover{
+            font-size: 250px;
+            text-shadow: 5px 5px 5px 5px #ffba08;.
+            
+        }
         /* Project Cards */
         .project-grid {
             display: flex;
