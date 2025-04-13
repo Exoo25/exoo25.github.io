@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mehdi | Young Dev Prodigy  </title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+a {
+    color:#85ffd4;
+}
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  background: linear-gradient(300deg,#000000,#b600ff,#ff6ae5);
+  background-size: 180% 180%;
+  animation: gradient-animation 12s ease infinite;
+  cursor: url('./arrowhead-rounded-outline.png'), auto;
+  
+}
+
+@keyframes gradient-animation {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+
+
+header {
+  padding: 2rem;
+  background: #1f1f1f;
+  text-align: center;
+  display:grid;
+}
+
+img {
+    margin-bottom: -134px;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #00ffae;
+}
+
+nav {
+  background: #272727;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #00ffae;
+}
+
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: linear-gradient(300deg,rgba(0, 0, 0, 0.3),rgba(182, 0, 255,0.9),rgb(255, 106, 229, 0.9));
+  border-radius: 8px;
+}
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+#about{
+  backdrop-filter: blur(100%);
+}
+
+h2 {
+  border-bottom: 2px solid #00ffae;
+  padding-bottom: 0.3rem;
+}
+
+.project {
+  margin-bottom: 1.5rem;
+  width:fit-content;
+  padding: 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(100px);
+  background:linear-gradient(300deg,rgba(0, 0, 0, 0.2),rgba(182, 0, 255,0.2),rgb(255, 106, 229, 0.2));
+  border:2px solid black;
+  transition-duration: 250ms;
+  box-shadow: 2px 2px 0 0 rgba(182, 0, 255,0.9),
+  4px 4px 0 0 black;
+}
+.project:hover{
+  transform: rotateZ(2.1deg) translate(-2px, -2px);
+  box-shadow: 3px 3px 0 0 rgba(182, 0, 255,0.9),
+  6px 6px 0 0 black;
+  cursor: url('./box.svg'), auto;
+  
+}
+
+.project h3 {
+  margin-top: 0;
+  color:#00ffae;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #1f1f1f;
+  color: #666;
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="mehdi.png" height="150">
+  <h1>      Mehdi</h1>
+  <br>
+  <p>9 y/o Coder | App Dev  | Python Lover</p>
+</header>
+
+<nav>
+  <a href="#projects">Projects</a>
+  <a href="#about">About Me</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hi! I'm Mehdi, a 9-year-old programmer from Skardu, Pakistan. I started coding at 7.9 and have built cool apps like <strong>Py-Hurts-My-Arms</strong>, AI tools, and games like <strong>Impossible Tic-Tac-Toe</strong>. I love working with Python, HTML, and JavaScript (no React plz 😅).</p>
+</section>
+<h2 style="text-align: center;">Projects</h2>
+<section id="projects">
+  
+
+  <div class="project">
+    <h3>Py-Hurts-My-Arms</h3>
+    <p>A lightweight Python code editor with themes and more</p>
+    <a href="https://github.com/Exoo25/Py-hurts-My-Arm" target="_blank">View on GitHub</a>
+  </div>
+
+  
+
+  <div class="project">
+    <h3>Image Generator</h3>
+    <p>Generate images and also download them goodluck to find the API key in chrome dev tools i always change it per day😏.</p>
+    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#imagegen.py">wanna try with REPLIT</a>
+    <br>
+    <a href="https://imgggen.netlify.app">wanna try online</a>
+  </div>
+
+  <div class="project">
+    <h3>PDF Protector App</h3>
+    <p>Password-protects PDF files with a sleek customtkinter interface.</p>
+    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#pdfp.py">wanna try with REPLIT</a>
+  </div>
+  <div class="project">
+    <h3>Totp Generator</h3>
+    <p>You can generate totp here by typing the secret key</p>
+    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#totp.py">wanna try with replit</a>
+  </div>
+  <div class="project">
+    <h3>Pomocut</h3>
+    <p>An pomodoro timer for productivity</p>
+    <a href="https://pomocut.netlify.app">wanna try with Online</a>
+  </div>
+  <div class="project">
+    <h3>HtmlProg</h3>
+    <p>online HTML IDE with everything we need</p>
+    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#totp.py">wanna try with replit</a>
+  </div>
+  And more but they are local(I CAN EVEN NOT USE REPLIT)
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Wanna collab or just say hi?</p>
+  <ul>
+    <li>Email: <a href="mailto:Exoo25pro@gmail.com">Exoo25pro@gmail.com</a></li>
+    <li>GitHub: <a href="https://github.com/Exoo25" target="_blank">Exoo25</a></li>
+    <li>Scratch: <a href="https://scratch.mit.edu/Exoo25" target="_blank">Exoo25 on Scratch</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Built with ❤️ by Mehdi</p>
+</footer>
+
+</body>
+</html>
