@@ -9,130 +9,199 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-a {
-    color:#85ffd4;
-}
-body {
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
-  background0-color: #121212;
-  color: #fff;
-  background: linear-gradient(300deg,#000000,#b600ff,#ff6ae5);
-  background-size: 180% 180%;
-  animation: gradient-animation 12s ease infinite;
-  cursor: url('./arrowhead-rounded-outline.png'), auto;
-  
-}
+    a {
+        color: #85ffd4;
+    }
+    body {
+        margin: 0;
+        font-family: 'Ubuntu', sans-serif;
+        background-color: #121212;
+        color: #fff;
+        background: linear-gradient(300deg, #000000, #b600ff, #ff6ae5);
+        background-size: 180% 180%;
+        animation: gradient-animation 12s ease infinite, fadeIn 3s ease forwards;
+        cursor: url('./arrowhead-rounded-outline.png'), auto;
+    }
 
-@keyframes gradient-animation {
-0% {
-background-position: 0% 50%;
-}
-50% {
-background-position: 100% 50%;
-}
-100% {
-background-position: 0% 50%;
-}
-}
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
 
-header {
-  padding: 2rem;
-  background: #1f1f1f;
-  text-align: center;
-  display:grid;
-}
+    h2 {
+        text-align: center;
+    }
 
-img {
-    margin-bottom: -134px;
-}
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: #00ffae;
-}
+    header {
+        padding: 2rem;
+        background: #1f1f1f;
+        text-align: center;
+        display: grid;
+        animation: slideIn 1.5s ease-out;
+    }
 
-nav {
-  background: #272727;
-  text-align: center;
-  padding: 1rem 0;
-}
+    header img {
+        margin-bottom: -134px;
+    }
 
-nav a {
-  margin: 0 1rem;
-  color: #ccc;
-  text-decoration: none;
-}
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: #00ffae;
+    }
 
-nav a:hover {
-  color: #00ffae;
-}
+    nav {
+        background: #272727;
+        text-align: center;
+        padding: 1rem 0;
+    }
 
-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: linear-gradient(300deg,rgba(0, 0, 0, 0.3),rgba(182, 0, 255,0.9),rgb(255, 106, 229, 0.9));
-  border-radius: 8px;
-}
-#projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-#about{
-  backdrop-filter: blur(100%);
-}
+    nav a {
+        margin: 0 1rem;
+        color: #ccc;
+        text-decoration: none;
+    }
 
-h2 {
-  border-bottom: 2px solid #00ffae;
-  padding-bottom: 0.3rem;
-}
+    nav a:hover {
+        color: #00ffae;
+    }
 
-.project {
-  margin-bottom: 1.5rem;
-  width:fit-content;
-  padding: 1rem;
-  border-radius: 8px;
-  backdrop-filter: blur(100px);
-  background:linear-gradient(300deg,rgba(0, 0, 0, 0.2),rgba(182, 0, 255,0.2),rgb(255, 106, 229, 0.2));
-  border:2px solid black;
-  transition-duration: 250ms;
-  box-shadow: 2px 2px 0 0 rgba(182, 0, 255,0.9),
-  4px 4px 0 0 black;
-}
-.project:hover{
-  transform: rotateZ(2.1deg) translate(-2px, -2px);
-  box-shadow: 3px 3px 0 0 rgba(182, 0, 255,0.9),
-  6px 6px 0 0 black;
-  cursor: url('./box.svg'), auto;
-  
-}
+    section {
+        width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background: linear-gradient(300deg, rgba(0, 0, 0, 0.3), rgba(182, 0, 255, 0.9), rgb(255, 106, 229, 0.9));
+        border-radius: 8px;
+    }
 
-.project h3 {
-  margin-top: 0;
-  color:#00ffae;
-}
+    #projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #1f1f1f;
-  color: #666;
-}
+    #about {
+        backdrop-filter: blur(100%);
+    }
+
+    .skill {
+        margin-bottom: 25px;
+    }
+
+    .label {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .bar {
+        background: #333;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 25px;
+        width: 100%;
+    }
+
+    .bar-fill {
+        height: 100%;
+        text-align: right;
+        padding-right: 10px;
+        line-height: 25px;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 10px;
+        width: 0;
+        animation: fillBar 2s ease forwards;
+    }
+
+    @keyframes fillBar {
+        from { width: 0; }
+        to   { width: var(--width); }
+    }
+
+    .html    .bar-fill { background: #e44d26;  --width: 95%;     animation-delay: 0.2s; }
+    .css     .bar-fill { background: #264de4;  --width: 78.5%;   animation-delay: 0.4s; }
+    .js      .bar-fill { background: #f0db4f;  color: #000; --width: 70.2%;   animation-delay: 0.6s; }
+    .python  .bar-fill { background: #306998;  --width: 99.9%;   animation-delay: 0.8s; }
+    .nodejs  .bar-fill { background: #3c873a;  --width: 12.933%; animation-delay: 1s; }
+    .php     .bar-fill { background: #8993be;  --width: 18.4%;   animation-delay: 1.2s; }
+
+    h2 {
+        border-bottom: 2px solid #00ffae;
+        padding-bottom: 0.3rem;
+    }
+
+    .project {
+        margin-bottom: 1.5rem;
+        width: fit-content;
+        padding: 1rem;
+        border-radius: 8px;
+        backdrop-filter: blur(100px);
+        background: linear-gradient(300deg, rgba(0, 0, 0, 0.2), rgba(182, 0, 255, 0.2), rgb(255, 106, 229, 0.2));
+        border: 2px solid black;
+        transition-duration: 250ms;
+        box-shadow: 2px 2px 0 0 rgba(182, 0, 255, 0.9),
+        4px 4px 0 0 black;
+        height: fit-content;
+    }
+
+    .project:hover {
+        transform: rotateZ(2.1deg) translate(-2px, -2px);
+        box-shadow: 3px 3px 0 0 rgba(182, 0, 255, 0.9),
+        6px 6px 0 0 black;
+        cursor: url('./box.svg'), auto;
+    }
+
+    #Analaytics {
+        width: fit-content;
+    }
+
+    .project h3 {
+        margin-top: 0;
+        color: #00ffae;
+    }
+
+    footer {
+        text-align: center;
+        padding: 2rem;
+        background: #1f1f1f;
+        color: #666;
+    }
   </style>
 </head>
 <body>
+
+<
 
 <header>
   <img src="mehdi.png" height="150">
   <h1>      Mehdi</h1>
   <br>
   <p>9 y/o Coder | App Dev  | Python Lover</p>
-  <p>NOTE: All links below are safe and go to my own projects. Some use public APIs like Unsplash. No AI, no fake downloads.</p>
-
 </header>
 
 <nav>
@@ -144,6 +213,46 @@ footer {
 <section id="about">
   <h2>About Me</h2>
   <p>Hi! I'm Mehdi, a 9-year-old programmer from Skardu, Pakistan. I started coding at 7.9 and have built cool apps like <strong>Py-Hurts-My-Arms</strong>, AI tools, and games like <strong>Impossible Tic-Tac-Toe</strong>. I love working with Python, HTML, and JavaScript (no React plz 😅).</p>
+</section>
+<h2>Stats</h2>
+<section id="stats">
+  <div class="skill html">
+    <div class="label">&#127760; HTML</div>
+    <div class="bar"><div class="bar-fill">95%</div></div>
+  </div>
+  
+  <div class="skill css">
+    <div class="label">&#127912; CSS</div>
+    <div class="bar"><div class="bar-fill">78.5%</div></div>
+  </div>
+  
+  <div class="skill js">
+    <div class="label">&#128220; JavaScript</div>
+    <div class="bar"><div class="bar-fill">70.2%</div></div>
+  </div>
+  
+  <div class="skill python">
+    <div class="label">&#128013; Python</div>
+    <div class="bar"><div class="bar-fill">99.9%</div></div>
+  </div>
+  
+  <div class="skill nodejs">
+    <div class="label">&#129001; Node.js</div>
+    <div class="bar"><div class="bar-fill">12.933%</div></div>
+  </div>
+  
+  <div class="skill php">
+    <div class="label">&#128024; PHP</div>
+    <div class="bar"><div class="bar-fill">18.4%</div></div>
+  </div>
+</section>
+<h2>Github Analaytics</h2>
+<section id="Analaytics">
+  <p><img src="https://github-readme-stats.vercel.app/api?username=Exoo25&amp;show_icons=true&amp;theme=tokyonight" alt="GitHub Stats">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Exoo25&amp;layout=compact&amp;theme=tokyonight" alt="Top Langs">
+    <img src="https://streak-stats.demolab.com/?user=Exoo25&amp;theme=tokyonight" alt="GitHub Streak">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Exoo25&amp;theme=tokyo-night" alt="GitHub Activity Graph"></p>
+    
 </section>
 <h2 style="text-align: center;">Projects</h2>
 <section id="projects">
@@ -182,7 +291,7 @@ footer {
   </div>
   <div class="project">
     <h3>Sentence-Press</h3>
-    <p>An pomodoro timer for productivity</p>
+    <p>An ms word copy</p>
     <a href="https://sentence-press.netlify.app">wanna try with Online</a>
   </div>
   <div class="project">
