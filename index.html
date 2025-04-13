@@ -86,8 +86,8 @@
         nav a:hover { color: #ffba08; }
 
         /* Sections */
-        section { display: none; padding: 100px 20px; }
-        section.active { display: block; }
+        section { display: block; padding: 100px 20px; }
+        
 
         /* Home Section */
         .home h1 {
@@ -169,15 +169,15 @@
         <span> <img src="icon.png" height="55" width="55"/>. . . . . . .. . . . . . .. . . . . . . . .. . . . . . .. . . . </span>
        <span>
         <nav>
-            <a href="#" onclick="showSection('home')">Home</a>
-            <a href="#" onclick="showSection('projects')">Projects</a>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
             <a href="https://fordevelepors.blogspot.com" target="_blank">Blog</a>
             <a href="https://exoo25pro.gumroad.com" target="_blank">Store</a>
-            <a href="#" onclick="showSection('courses')">Free Courses</a>
+            <a href="#courses">Free Courses</a>
         </nav>
        </span>
     </header>
-
+<br>
     <!-- Home Section -->
     <section id="home" class="home active">
         <h1 id=title>Mehdi - The Youngest Dev in the Omniverse</h1>
@@ -215,6 +215,7 @@
         </div>
 
     </section>
+    <br>
 <style>
   a img:hover {
     transform: scale(1.2); /* Increases the size by 20% */
@@ -264,7 +265,7 @@
 
         </div>
     </section>
-
+<br>
     <section id="courses">
         <h2>Free Courses</h2>
         <div class="course-card">
@@ -285,10 +286,7 @@
     </footer>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-        }
+        
 
         // Generate floating emojis inside project cards
         function createFloatingEmojis() {
