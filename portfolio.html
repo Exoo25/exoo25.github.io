@@ -1,335 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Mehdi | Young Dev Prodigy  </title>
-
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-    a {
-        color: #85ffd4;
-    }
-    body {
-        margin: 0;
-        font-family: 'Ubuntu', sans-serif;
-        background-color: #121212;
-        color: #fff;
-        background: linear-gradient(300deg, #000000, #b600ff, #ff6ae5);
-        background-size: 180% 180%;
-        animation: gradient-animation 12s ease infinite, fadeIn 3s ease forwards;
-        cursor: url('./arrowhead-rounded-outline.png'), auto;
-    }
+a {
+  color: #85ffd4;
+}
 
-    @keyframes gradient-animation {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
+body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #121212;
+  color: #fff;
+  background: linear-gradient(300deg, #000000, #b600ff, #ff6ae5);
+  background-size: 180% 180%;
+  animation: gradient-animation 12s ease infinite, fadeIn 3s ease forwards;
+  cursor: url("./arrowhead-rounded-outline.png"),
+    auto;
+}
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
 
-    @keyframes slideIn {
-        from {
-            transform: translateX(-100%);
-        }
-        to {
-            transform: translateX(0);
-        }
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 
-    h2 {
-        text-align: center;
-    }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-    header {
-        padding: 2rem;
-        background: #1f1f1f;
-        text-align: center;
-        display: grid;
-        animation: slideIn 1.5s ease-out;
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
-    header img {
-        margin-bottom: -134px;
-    }
+  to {
+    opacity: 1;
+  }
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-        color: #00ffae;
-    }
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
 
-    nav {
-        background: #272727;
-        text-align: center;
-        padding: 1rem 0;
-    }
+  to {
+    transform: translateX(0);
+  }
+}
 
-    nav a {
-        margin: 0 1rem;
-        color: #ccc;
-        text-decoration: none;
-    }
+h2 {
+  text-align: center;
+}
+#stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
 
-    nav a:hover {
-        color: #00ffae;
-    }
+.contact-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+#openBtn {
+  background: #3b82f6;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-    section {
-        width: 800px;
-        margin: 2rem auto;
-        padding: 1rem;
-        background: linear-gradient(300deg, rgba(0, 0, 0, 0.3), rgba(182, 0, 255, 0.9), rgb(255, 106, 229, 0.9));
-        border-radius: 8px;
-    }
+.window {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 70%;
+  background: #181818;
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  resize: both;
+  overflow: auto;
+}
 
-    #projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-    }
+.title-bar {
+  background: #2c2c2c;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: move;
+}
 
-    #about {
-        backdrop-filter: blur(100%);
-    }
+.close-btn {
+  background: #ef4444;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  cursor: pointer;
+}
 
-    .skill {
-        margin-bottom: 25px;
-    }
+.window iframe {
+  height: 100%;
+  width: 100%;
+}
 
-    .label {
-        margin-bottom: 5px;
-        font-size: 18px;
-    }
+.contact-form h2 {
+  margin-bottom: 20px;
+  color: #333333;
+  text-align: center;
+}
 
-    .bar {
-        background: #333;
-        border-radius: 10px;
-        overflow: hidden;
-        height: 25px;
-        width: 100%;
-    }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-    .bar-fill {
-        height: 100%;
-        text-align: right;
-        padding-right: 10px;
-        line-height: 25px;
-        color: #fff;
-        font-weight: bold;
-        border-radius: 10px;
-        width: 0;
-        animation: fillBar 2s ease forwards;
-    }
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    @keyframes fillBar {
-        from { width: 0; }
-        to   { width: var(--width); }
-    }
+.contact-form button:hover {
+  background-color: #45a049;
+}
 
-    .html    .bar-fill { background: #e44d26;  --width: 95%;     animation-delay: 0.2s; }
-    .css     .bar-fill { background: #264de4;  --width: 78.5%;   animation-delay: 0.4s; }
-    .js      .bar-fill { background: #f0db4f;  color: #000; --width: 70.2%;   animation-delay: 0.6s; }
-    .python  .bar-fill { background: #306998;  --width: 99.9%;   animation-delay: 0.8s; }
-    .nodejs  .bar-fill { background: #3c873a;  --width: 12.933%; animation-delay: 1s; }
-    .php     .bar-fill { background: #8993be;  --width: 18.4%;   animation-delay: 1.2s; }
-    .java     .bar-fill { background: #be8989;  --width: 11.593346%;   animation-delay: 0.1s; }
-    .cs     .bar-fill { background: #6600ff;  --width: 49.96%;   animation-delay: 0.8s; }
+header {
+  padding: 2rem;
+  background: #1f1f1f;
+  text-align: center;
+  display: grid;
+  animation: slideIn 1.5s ease-out;
+}
 
-    h2 {
-        border-bottom: 2px solid #00ffae;
-        padding-bottom: 0.3rem;
-    }
+header img {
+  margin-bottom: -134px;
+}
 
-    .project {
-        margin-bottom: 1.5rem;
-        width: fit-content;
-        padding: 1rem;
-        border-radius: 8px;
-        backdrop-filter: blur(100px);
-        background: linear-gradient(300deg, rgba(0, 0, 0, 0.2), rgba(182, 0, 255, 0.2), rgb(255, 106, 229, 0.2));
-        border: 2px solid black;
-        transition-duration: 250ms;
-        box-shadow: 2px 2px 0 0 rgba(182, 0, 255, 0.9),
-        4px 4px 0 0 black;
-        height: fit-content;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #00ffae;
+}
 
-    .project:hover {
-        transform: rotateZ(2.1deg) translate(-2px, -2px);
-        box-shadow: 3px 3px 0 0 rgba(182, 0, 255, 0.9),
-        6px 6px 0 0 black;
-        cursor: url('./box.svg'), auto;
-    }
+nav {
+  background: #272727;
+  text-align: center;
+  padding: 1rem 0;
+}
 
-    #Analaytics {
-        width: fit-content;
-    }
+nav a {
+  margin: 0 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
 
-    .project h3 {
-        margin-top: 0;
-        color: #00ffae;
-    }
+nav a:hover {
+  color: #00ffae;
+}
 
-    footer {
-        text-align: center;
-        padding: 2rem;
-        background: #1f1f1f;
-        color: #666;
-    }
+section {
+  width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: linear-gradient(
+    300deg,
+    rgba(0, 0, 0, 0.3),
+    rgba(182, 0, 255, 0.9),
+    rgb(255, 106, 229, 0.9)
+  );
+  border-radius: 8px;
+}
+
+#projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+#about {
+  backdrop-filter: blur(100%);
+}
+
+.skill {
+  margin-bottom: 25px;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.bar {
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 25px;
+  width: 100%;
+}
+
+.bar-fill {
+  height: 100%;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 25px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 0;
+  animation: fillBar 2s ease forwards;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: var(--width);
+  }
+}
+.stats {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.html .bar-fill {
+  background: #e44d26;
+  --width: 95%;
+  animation-delay: 0.2s;
+}
+
+.css .bar-fill {
+  background: #264de4;
+  --width: 78.5%;
+  animation-delay: 0.4s;
+}
+
+.js .bar-fill {
+  background: #f0db4f;
+  color: #000;
+  --width: 70.2%;
+  animation-delay: 0.6s;
+}
+
+.python .bar-fill {
+  background: #306998;
+  --width: 99.9%;
+  animation-delay: 0.8s;
+}
+
+.nodejs .bar-fill {
+  background: #3c873a;
+  --width: 12.933%;
+  animation-delay: 1s;
+}
+
+.php .bar-fill {
+  background: #8993be;
+  --width: 18.4%;
+  animation-delay: 1.2s;
+}
+
+.java .bar-fill {
+  background: #be8989;
+  --width: 11.593346%;
+  animation-delay: 0.1s;
+}
+
+.cs .bar-fill {
+  background: #6600ff;
+  --width: 49.96%;
+  animation-delay: 0.8s;
+}
+.git .bar-fill {
+  background: #fc5603;
+  --width: 79.35%;
+  animation-delay: 0.2s;
+}
+
+h2 {
+  border-bottom: 2px solid #00ffae;
+  padding-bottom: 0.3rem;
+}
+
+.project {
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(100px);
+  background: linear-gradient(
+    300deg,
+    rgba(0, 0, 0, 0.2),
+    rgba(182, 0, 255, 0.2),
+    rgb(255, 106, 229, 0.2)
+  );
+  border: 2px solid black;
+  transition-duration: 250ms;
+  box-shadow: 2px 2px 0 0 rgba(182, 0, 255, 0.9), 4px 4px 0 0 black;
+  height: fit-content;
+}
+
+.project:hover {
+  transform: rotateZ(2.1deg) translate(-2px, -2px);
+  box-shadow: 3px 3px 0 0 rgba(182, 0, 255, 0.9), 6px 6px 0 0 black;
+  cursor: url("./box.svg"),
+    auto;
+}
+
+#Analaytics {
+  width: fit-content;
+}
+
+.project h3 {
+  margin-top: 0;
+  color: #00ffae;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #1f1f1f;
+  color: #666;
+}
+
   </style>
+  <title>Mehdi | Young Dev Prodigy </title>
+
 </head>
+
 <body>
 
-
-
-<header>
-  <img src="mehdi.png" height="150">
-  <h1>      Mehdi</h1>
-  <br>
-  <p>9 y/o Coder | App Dev  | Python Lover</p>
-</header>
-
-<nav>
-  <a href="#projects">Projects</a>
-  <a href="#about">About Me</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <h2>About Me</h2>
-  <p>Hi! I'm Mehdi, a 9-year-old programmer from Skardu, Pakistan. I started coding at 7.9 and have built cool apps like <strong>Py-Hurts-My-Arms</strong>, AI tools, and games like <strong>Impossible Tic-Tac-Toe</strong>. I love working with Python, HTML, and JavaScript (no React plz 😅).</p>
-</section>
-<h2>Stats</h2>
-<section id="stats">
-  <div class="skill html">
-    <div class="label">&#127760; HTML</div>
-    <div class="bar"><div class="bar-fill">95%</div></div>
-  </div>
-  
-  <div class="skill css">
-    <div class="label">&#127912; CSS</div>
-    <div class="bar"><div class="bar-fill">78.5%</div></div>
-  </div>
-  
-  <div class="skill js">
-    <div class="label">&#128220; JavaScript</div>
-    <div class="bar"><div class="bar-fill">70.2%</div></div>
-  </div>
-  <div class="skill java">
-    <div class="label">&#9749; Java</div>
-    <div class="bar"><div class="bar-fill">11.593346%</div></div>
-  </div>
-  <div class="skill cs">
-    <div class="label">&#x1D49C; C#</div>
-    <div class="bar"><div class="bar-fill">49.96%</div></div>
-  </div>
-  
-  <div class="skill python">
-    <div class="label">&#128013; Python</div>
-    <div class="bar"><div class="bar-fill">99.9%</div></div>
-  </div>
-  
-  <div class="skill nodejs">
-    <div class="label">&#129001; Node.js</div>
-    <div class="bar"><div class="bar-fill">12.933%</div></div>
-  </div>
-  
-  <div class="skill php">
-    <div class="label">&#128024; PHP</div>
-    <div class="bar"><div class="bar-fill">18.4%</div></div>
-  </div>
-</section>
-<h2>Github Analaytics</h2>
-<section id="Analaytics">
-  <p><img src="https://github-readme-stats.vercel.app/api?username=Exoo25&amp;show_icons=true&amp;theme=tokyonight" alt="GitHub Stats">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Exoo25&amp;layout=compact&amp;theme=tokyonight" alt="Top Langs">
-    <img src="https://streak-stats.demolab.com/?user=Exoo25&amp;theme=tokyonight" alt="GitHub Streak">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Exoo25&amp;theme=tokyo-night" alt="GitHub Activity Graph"></p>
-    
-</section>
-<h2 style="text-align: center;">Projects</h2>
-<section id="projects">
-  
-
-  <div class="project">
-    <h3>Py-Hurts-My-Arms</h3>
-    <p>A lightweight Python code editor with themes and more</p>
-    <a href="https://github.com/Exoo25/Py-hurts-My-Arm" target="_blank">View on GitHub</a>
-  </div>
-
-  
-
-  <div class="project">
-    <h3>Image Generator</h3>
-    <p>Generate images and also download them goodluck to find the API key in chrome dev tools i always change it per day😏.</p>
-    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#imagegen.py">wanna try with REPLIT</a>
+  <header>
+    <img src="mehdi.png" height="150">
+    <h1> Mehdi</h1>
     <br>
-    <a href="https://imgggen.netlify.app">wanna try online</a>
-  </div>
+    <p>9 y/o Coder | App Dev | Python Lover</p>
+  </header>
 
-  <div class="project">
-    <h3>PDF Protector App</h3>
-    <p>Password-protects PDF files with a sleek customtkinter interface.</p>
-    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#pdfp.py">wanna try with REPLIT</a>
-  </div>
-  <div class="project">
-    <h3>Totp Generator</h3>
-    <p>You can generate totp here by typing the secret key</p>
-    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#totp.py">wanna try with replit</a>
-  </div>
-  <div class="project">
-    <h3>Pomocut</h3>
-    <p>An pomodoro timer for productivity</p>
-    <a href="https://pomocut.netlify.app">wanna try with Online</a>
-  </div>
-  <div class="project">
-    <h3>Sentence-Press</h3>
-    <p>An ms word copy</p>
-    <a href="https://sentence-press.netlify.app">wanna try with Online</a>
-  </div>
-  <div class="project">
-    <h3>Coinflipper</h3>
-    <p>No description</p>
-    <a href="https://exoo25.github.io/coin-flipper">wanna try with Online</a>
-  </div>
-  <div class="project">
-    <h3>HtmlProg</h3>
-    <p>online HTML IDE with everything we need</p>
-    <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#totp.py">wanna try with replit</a>
-  </div>
-  And more but they are local(I CAN EVEN NOT USE REPLIT)
-</section>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <p>Wanna collab or just say hi?</p>
-  <ul>
-    <li>Email: <a href="mailto:Exoo25pro@gmail.com">Exoo25pro@gmail.com</a></li>
-    <li>GitHub: <a href="https://github.com/Exoo25" target="_blank">Exoo25</a></li>
-    <li>Scratch: <a href="https://scratch.mit.edu/Exoo25" target="_blank">Exoo25 on Scratch</a></li>
-  </ul>
-</section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm Mehdi, a 9-year-old programmer from Skardu, Pakistan. I started coding at 7.9 and have built cool apps like <strong>Py-Hurts-My-Arms</strong>, AI tools, and games like <strong>Impossible Tic-Tac-Toe</strong>. I love working with Python, HTML, and JavaScript (no React plz 😅).</p>
+  </section>
+  <h2>Stats</h2>
+  <section id="stats">
+    <div class="skill html">
+      <div class="label">&#127760; HTML</div>
+      <div class="bar">
+        <div class="bar-fill">95%</div>
+      </div>
+    </div>
 
-<footer>
-  <p>Built with ❤️ by Mehdi</p>
-</footer>
+    <div class="skill css">
+      <div class="label">&#127912; CSS</div>
+      <div class="bar">
+        <div class="bar-fill">78.5%</div>
+      </div>
+    </div>
+
+    <div class="skill js">
+      <div class="label">&#128220; JavaScript</div>
+      <div class="bar">
+        <div class="bar-fill">70.2%</div>
+      </div>
+    </div>
+    <div class="skill java">
+      <div class="label">&#9749; Java</div>
+      <div class="bar">
+        <div class="bar-fill">11.593346%</div>
+      </div>
+    </div>
+    <div class="skill cs">
+      <div class="label">&#x1D49C; C#</div>
+      <div class="bar">
+        <div class="bar-fill">49.96%</div>
+      </div>
+    </div>
+
+    <div class="skill python">
+      <div class="label">&#128013; Python</div>
+      <div class="bar">
+        <div class="bar-fill">99.9%</div>
+      </div>
+    </div>
+
+    <div class="skill nodejs">
+      <div class="label">&#129001; Node.js</div>
+      <div class="bar">
+        <div class="bar-fill">12.933%</div>
+      </div>
+    </div>
+
+    <div class="skill php">
+      <div class="label">&#128024; PHP</div>
+      <div class="bar">
+        <div class="bar-fill">18.4%</div>
+      </div>
+    </div>
+    <div class="skill git">
+      <div class="label"> &#128295; Git</div>
+      <div class="bar">
+        <div class="bar-fill">79.35%</div>
+      </div>
+    </div>
+  </section>
+  <h2>Github Analaytics</h2>
+  <section id="Analaytics">
+    <p><img src="https://github-readme-stats.vercel.app/api?username=Exoo25&amp;show_icons=true&amp;theme=tokyonight" alt="GitHub Stats">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Exoo25&amp;layout=compact&amp;theme=tokyonight" alt="Top Langs">
+      <img src="https://streak-stats.demolab.com/?user=Exoo25&amp;theme=tokyonight" alt="GitHub Streak">
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=Exoo25&amp;theme=tokyo-night" alt="GitHub Activity Graph">
+    </p>
+
+  </section>
+  <h2 style="text-align: center;">Projects</h2>
+  <section id="projects">
+
+    <div class="project">
+      <h3>Py-Hurts-My-Arms</h3>
+      <p>A lightweight Python code editor with themes and more</p>
+      <a href="https://github.com/Exoo25/Py-hurts-My-Arm" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Image Generator</h3>
+      <p>Generate images and also download them goodluck to find the API key in chrome dev tools i always change it per day😏.</p>
+      <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#imagegen.py">wanna try with REPLIT</a>
+      <br>
+      <a href="https://imgggen.netlify.app">wanna try online</a>
+    </div>
+
+    <div class="project">
+      <h3>PDF Protector App</h3>
+      <p>Password-protects PDF files with a sleek customtkinter interface.</p>
+      <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#pdfp.py">wanna try with REPLIT</a>
+    </div>
+    <div class="project">
+      <h3>Totp Generator</h3>
+      <p>You can generate totp here by typing the secret key</p>
+      <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#totp.py">wanna try with replit</a>
+    </div>
+    <div class="project">
+      <h3>Pomocut</h3>
+      <p>An pomodoro timer for productivity</p>
+      <a href="https://pomocut.netlify.app">wanna try with Online</a>
+    </div>
+    <div class="project">
+      <h3>Sentence-Press</h3>
+      <p>An ms word copy</p>
+      <a href="https://sentence-press.netlify.app">wanna try with Online</a>
+    </div>
+    <div class="project">
+      <h3>Coinflipper</h3>
+      <p>No description</p>
+      <a href="https://exoo25.github.io/coin-flipper">wanna try with Online</a>
+    </div>
+    <div class="project">
+      <h3>HtmlProg</h3>
+      <p>online HTML IDE with everything we need</p>
+      <a href="https://replit.com/@exoo25pro/UnacceptableDangerousOffices#totp.py">wanna try with replit</a>
+    </div>
+    And more but they are local(I CAN EVEN NOT USE REPLIT)
+  </section>
+  <section id="freel">
+    <h2>I am a new freelauncer</h2>
+    <p>want to become my client i started freelauncing at 17/4/205</p>
+    <button id="openBtn">Send me a request</button>
+
+    <div class="window" id="formWindow">
+      <div class="title-bar">
+        Client Request Form
+        <button class="close-btn" id="closeBtn">X</button>
+      </div>
+      <iframe src="https://forms.gle/WUeeFSUYtyvo4FUbA"></iframe>
+    </div>
+
+  </section>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Wanna collab or just say hi?</p>
+    <script>
+      const openBtn = document.getElementById("openBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      const formWindow = document.getElementById("formWindow");
+      openBtn.onclick = () => formWindow.style.display = "block";
+      closeBtn.onclick = () => formWindow.style.display = "none";
+      // Optional: draggable window
+      const titleBar = formWindow.querySelector(".title-bar");
+      let isDragging = false,
+        offsetX, offsetY;
+      titleBar.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - formWindow.offsetLeft;
+        offsetY = e.clientY - formWindow.offsetTop;
+      });
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          formWindow.style.left = `${e.clientX - offsetX}px`;
+          formWindow.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+    </script>
+    <ul>
+      <li>Email: <a href="mailto:Exoo25pro@gmail.com">Exoo25pro@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/Exoo25" target="_blank">Exoo25</a></li>
+      <li>Scratch: <a href="https://scratch.mit.edu/Exoo25" target="_blank">Exoo25 on Scratch</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Built with ❤️ by Mehdi</p>
+  </footer>
 
 </body>
+
 </html>
