@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mehdi - Youngest Dev in the Omniverse</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=content_copy" />
     <meta name="description" content="Mehdi - The youngest developer in the Omniverse. Check out my projects, blog, and store.">
     <meta property="og:title" content="Mehdi - Youngest Dev in the Omniverse">
     <meta property="og:description" content="Check out my projects, blog, and store!">
@@ -43,17 +44,89 @@
 }
 
         /* Background */
-        
+        @import url('https://fonts.cdnfonts.com/css/cascadia-code');
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
         body {
             background: radial-gradient(circle, #0d1b2a, #03071e);
             color: white;
-            text-align: center;
+            
             overflow-x: hidden;
             font-family: "IBM Plex Mono", monospace;
             cursor: url('https://exoo25.github.io/arrowhead-rounded-outline.png'), auto;
         }
-        
+        h1,h2,h3,p,nav {
+          text-align: center;
+        }
+        #openBtn {
+  background: #3b82f6;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.window {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 70%;
+  background: #181818;
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  resize: both;
+  overflow: auto;
+}
+.window .code-con {
+  text-align: left;
+  font-family: 'Cascadia Code', sans-serif;
+  padding: 20px;
+  width: 80%; /* Set the width of the container */
+  max-width: 800px; /* Maximum width */
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 10px; /* Optional rounded corners */
+  overflow: auto; 
+  box-shadow: 0 0 50px 0 blue;
+  
+}
+.window code {
+  font-family: 'Cascadia Code', sans-serif;
+  color:lime;
+  font-size: 12px;
+}
+
+.title-bar {
+  background: #2c2c2c;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: move;
+  
+}
+
+.close-btn {
+  background: #ef4444;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 
 
         /* Header */
@@ -298,26 +371,158 @@
         </div>
     </section>
     <h1>My all resources here</h1>
+    <div class="window" id="formWindow">
+      <div class="title-bar" style="height:fit-content;">
+<button class="btn" id="copy" onclick="copy()"><span class="material-symbols-outlined">content_copy</span></button>  
+
+        Glowing button code
+        <button class="close-btn" id="closeBtn">X</button>
+      </div>
+      <div class="code-con">
+        <code id="code">&lt;body&gt;<br>
+  &nbsp;&nbsp;&lt;button class=&quot;btn&quot;&gt;Hover Me!&lt;/button&gt;<br>
+  &lt;/body&gt;<br>
+  &lt;style&gt;<br>
+html, body {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;justify-content: center;<br>
+&nbsp;&nbsp;align-items: center;<br>
+&nbsp;&nbsp;background-color: #161616;<br>
+&nbsp;&nbsp;overflow: hidden;<br>
+&nbsp;&nbsp;/* transform: scale(1.5); */<br>
+}<br><br>
+
+/* button */<br>
+.btn {<br>
+&nbsp;&nbsp;margin: 100px;<br>
+&nbsp;&nbsp;padding: 15px 40px;<br>
+&nbsp;&nbsp;border: none;<br>
+&nbsp;&nbsp;outline: none;<br>
+&nbsp;&nbsp;color: #FFF;<br>
+&nbsp;&nbsp;cursor: pointer;<br>
+&nbsp;&nbsp;position: relative;<br>
+&nbsp;&nbsp;z-index: 0;<br>
+&nbsp;&nbsp;border-radius: 12px;<br>
+}<br>
+.btn::after {<br>
+&nbsp;&nbsp;content: &quot;&quot;;<br>
+&nbsp;&nbsp;z-index: -1;<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;width: 100%;<br>
+&nbsp;&nbsp;height: 100%;<br>
+&nbsp;&nbsp;background-color: #333;<br>
+&nbsp;&nbsp;left: 0;<br>
+&nbsp;&nbsp;top: 0;<br>
+&nbsp;&nbsp;border-radius: 10px;<br>
+}<br><br>
+
+/* glow */<br>
+.btn::before {<br>
+&nbsp;&nbsp;content: &quot;&quot;;<br>
+&nbsp;&nbsp;background: linear-gradient(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;45deg,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#FF0000, #FF7300, #FFFB00, #48FF00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#00FFD5, #002BFF, #FF00C8, #FF0000<br>
+&nbsp;&nbsp;);<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;top: -2px;<br>
+&nbsp;&nbsp;left: -2px;<br>
+&nbsp;&nbsp;background-size: 600%;<br>
+&nbsp;&nbsp;z-index: -1;<br>
+&nbsp;&nbsp;width: calc(100% + 4px);<br>
+&nbsp;&nbsp;height: calc(100% + 4px);<br>
+&nbsp;&nbsp;filter: blur(8px);<br>
+&nbsp;&nbsp;animation: glowing 20s linear infinite;<br>
+&nbsp;&nbsp;transition: opacity .3s ease-in-out;<br>
+&nbsp;&nbsp;border-radius: 10px;<br>
+&nbsp;&nbsp;opacity: 0;<br>
+}<br><br>
+
+@keyframes glowing {<br>
+&nbsp;&nbsp;0% {background-position: 0 0;}<br>
+&nbsp;&nbsp;50% {background-position: 400% 0;}<br>
+&nbsp;&nbsp;100% {background-position: 0 0;}<br>
+}<br><br>
+
+/* hover */<br>
+.btn:hover::before {<br>
+&nbsp;&nbsp;opacity: 1;<br>
+}<br><br>
+
+.btn:active:after {<br>
+&nbsp;&nbsp;background: transparent;<br>
+}<br><br>
+
+.btn:active {<br>
+&nbsp;&nbsp;color: #000;<br>
+&nbsp;&nbsp;font-weight: bold;<br>
+}<br>
+&lt;/style&gt;<br>
+  </code>
+</div>
+
+
+    </div>
     <section id="resources">
         
         <br>
         <div class="project-card">
-            <h3>Develepor portfolio template</h3>
+            <h6>Develepor portfolio template</h6>
             <p>It is a develepor portfolio template feel free to customize it colors text or anything else</p>
             <a href="https://drive.google.com/uc?export=download&id=1T5uRVvO32lBciaS1nZjgPYnbkfUGUM_c">
-                <button type="button">donwload</button>
+                <button type="button" class="btn">donwload</button>
             </a>
         </div>
         <div class="project-card">
-            <h3>Blog template</h3>
+            <h6>Blog template</h6>
             <p>It is a blog template but 0% divs and 101% senatic elements </p>
             <a href="https://drive.google.com/uc?export=download&id=1h7Sorwnu9Ea4OcE65yHH_LWT4pTWZRva">
-                <button type="button">download</button>
+                <button type="button" class="btn">download</button>
             </a>
         </div>
+        <div class="project-card">
+            <h6>CSS glowing button template</h6>
+            <p>It is a css ultra glowing button </p>
+            
+    <button id="openBtn">Code</button>
+
+    
+
+  </section>
+  <br><br>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Wanna collab or just say hi?</p>
+    <script>
+      const openBtn = document.getElementById("openBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      const formWindow = document.getElementById("formWindow");
+      openBtn.onclick = () => formWindow.style.display = "block";
+      closeBtn.onclick = () => formWindow.style.display = "none";
+      // Optional: draggable window
+      const titleBar = formWindow.querySelector(".title-bar");
+      let isDragging = false,
+        offsetX, offsetY;
+      titleBar.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - formWindow.offsetLeft;
+        offsetY = e.clientY - formWindow.offsetTop;
+      });
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          formWindow.style.left = `${e.clientX - offsetX}px`;
+          formWindow.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+    </script>
+        </div>
+        
 
             <style>
-                 button {
+                 .btn {
       border: 2px solid black;
       box-shadow: 2px 2px 0 0 white,
                   4px 4px 0 0 black;
@@ -383,7 +588,25 @@
         }
 
         createFloatingEmojis();
-    </script>
+        function copy() {
+          const range = document.createRange();
+          range.selectNode(document.getElementById("code"));
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+        
+          try {
+            const success = document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            if (success) {
+              alert("✅ Code copied!");
+            } else {
+              alert("❌ Could not copy.");
+            }
+          } catch (err) {
+            alert("❌ Browser doesn't support copy command.");
+          }
+        }
+</script>
 
 </body>
 </html>
