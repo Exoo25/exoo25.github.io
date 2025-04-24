@@ -4,9 +4,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  
   <style>
       @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext");
 
+                * {
+                  box-sizing: border-box;
+                }
+
+                
+
+                /* Modal styles */
+                .modal {
+                  display: none; /* Hidden by default */
+                  position: fixed;
+                  z-index: 1; /* Sit on top */
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  background: linear-gradient(-20deg, #F24, #64F);
+                  height: 100%;
+                  overflow: auto;
+                  background-color: rgba(0, 0, 0, 0.4);
+                  padding-top: 60px;
+                  color:black;
+                }
+
+                .modal-content {
+                  background-color: #fff;
+                  margin: 5% auto;
+                  padding: 20px;
+                  border: 1px solid #888;
+                  width: 80%;
+                  max-width: 700px;
+                  border-radius: 15px;
+                  box-shadow: 0 8px 60px -10px #3339;
+                }
+
+                .close {
+                  color: #aaa;
+                  float: right;
+                  font-size: 28px;
+                  font-weight: bold;
+                }
+
+                .close:hover,
+                .close:focus {
+                  color: black;
+                  text-decoration: none;
+                  cursor: pointer;
+                }
+
+                .img {
+                  width: 150px;
+                  height: 150px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  transform: translateY(-50%);
+                  overflow: hidden;
+                  border-radius: 50%;
+                  box-shadow: 0 5px 50px 0 #64F,
+                              0 0 0 7px #64F8;
+                  transition-duration: 300ms;
+                }
+
+                .img:hover {
+                  transform: scale(1.1) translateY(-40%);
+                }
+
+                .cnt {
+                  margin-top: -35px;
+                  padding: 0 20px;
+                  text-align: center;
+                  padding-bottom: 40px;
+                }
+
+                .name {
+                  font-weight: 700;
+                  font-size: 30px;
+                  color: #64F;
+                  margin-bottom: 15px;
+                }
+
+                .txt {
+                  font-weight: 500;
+                  font-size: 18px;
+                  margin-bottom: 15px;
+                  margin-top: 7px;
+                }
+
+                .card-social {
+                  margin-top: 25px;
+                }
+                .item {
+              padding: 10px 35px;
+              min-width: 150px;
+            }
+            .card-inf {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 35px;
+      }
+            .title {
+              font-weight: 700;
+              font-size: 27px;
+            }
+
+                .card-social a {
+                  display: inline-flex;
+                  width: 55px;
+                  height: 55px;
+                  margin: 20px;
+                  align-items: center;
+                  justify-content: center;
+                  color: #FFF;
+                  font-size: 30px;
+                  border-radius: 50%;
+                  text-decoration: none;
+                  transition: all 300ms;
+                }
+
+                .card-social .codepen {
+                  background: linear-gradient(45deg, #359, #07D);
+                  box-shadow: 0 4px 30px #26A8;
+                }
+
+                .card-social .youtube {
+                  background: linear-gradient(45deg, rgb(255, 0, 0), #07C);
+                  box-shadow: 0 4px 30px #17D8;
+                }
+
+                .card-social .github {
+                  background: linear-gradient(45deg, #333, #667);
+                  box-shadow: 0 4px 30px #3449;
+                }
+
+                button {
+                  min-width: 201px;
+                  min-height: 55px;
+                  margin: 15px 35px;
+                  font-size: 19px;
+                  font-family: "Quicksand", sans-serif;
+                  font-weight: 700;
+                  border-radius: 50px;
+                  border: none;
+                  color: #FFF;
+                  cursor: pointer;
+                  transition: all 300ms;
+                }
+
+                .btn-blue {
+                  background: linear-gradient(45deg, #1AF, #07C);
+                  box-shadow: 0 4px 30px #17D6;
+                }
+
+                .btn-orange {
+                  background: linear-gradient(45deg, #D15, #D52);
+                  box-shadow: 0 4px 30px #D245;
+                }
+
+                button:hover {
+                  transform: translateY(-5px);
+                }
 a {
   color: #85ffd4;
 }
@@ -130,37 +295,7 @@ h2 {
   width: 100%;
 }
 
-.contact-form h2 {
-  margin-bottom: 20px;
-  color: #333333;
-  text-align: center;
-}
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  background-color: #4caf50;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #45a049;
-}
 
 header {
   padding: 2rem;
@@ -385,6 +520,73 @@ footer {
   <section id="about">
     <h2>About Me</h2>
     <p>Hi! I'm Mehdi, a 9-year-old programmer from Skardu, Pakistan. I started coding at 7.9 and have built cool apps like <strong>Py-Hurts-My-Arms</strong>, AI tools, and games like <strong>Impossible Tic-Tac-Toe</strong>. I love working with Python, HTML, and JavaScript (no React plz 😅).</p>
+    <!-- Trigger/Open The Modal Button -->
+    <button id="myBtn" class="btn-blue">Open Profile</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <div class="img">
+          <img
+            src="https://exoo25.github.io/mehdi.png"
+            alt="Image"
+            width="100%"
+          />
+        </div>
+
+        <div class="cnt">
+          <div class="name">Mehdi Ali</div>
+          <div class="txt">Youngest dev in the world</div>
+          <i class="fas fa-thumbtack"></i>
+          <strong>Gilgit Baltistan, Pakistan</strong>
+          <div class="card-inf">
+            <div class="item">
+              <div class="title">22</div>
+              <div class="txt">Folowers</div>
+            </div>
+
+            <div class="item">
+              <div class="title">?</div>
+              <div class="txt">Folowing</div>
+            </div>
+
+            <div class="item">
+              <div class="title">4</div>
+              <div class="txt">Articles</div>
+            </div>
+
+            <div class="item">
+              <div class="title">39</div>
+              <div class="txt">Works</div>
+            </div>
+          </div>
+          <div class="card-social">
+            <a href="https://codepen.io/Exoo25" class="codepen">
+              <i class="fab fa-codepen"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@Exoo25-dev" class="youtube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/Exoo25" class="github">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+
+          <div class="card-button">
+            <a href="mailto:exoo25pro@gmail.com" id="urll"
+              ><button class="btn-blue">Message</button></a
+            >
+            <a href="#" onclick="randomRedirect()"
+              ><button class="btn-orange">Follow</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <h2>Stats</h2>
   <section id="stats">
@@ -547,6 +749,42 @@ footer {
       document.addEventListener("mouseup", () => {
         isDragging = false;
       });
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      // Random redirect function
+      function randomRedirect() {
+        const links = [
+          "https://www.youtube.com/@Exoo25-dev?sub_confirmation=1",
+          "https://scratch.mit.edu/users/Exoo25",
+          "https://codepen.io/Exoo25"
+        ];
+
+        const url = links[Math.floor(Math.random() * links.length)];
+        window.open(url, '_blank');
+      }
     </script>
     <ul>
       <li>Email: <a href="mailto:Exoo25pro@gmail.com">Exoo25pro@gmail.com</a></li>
